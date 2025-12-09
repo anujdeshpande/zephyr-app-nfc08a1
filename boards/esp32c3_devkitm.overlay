@@ -1,0 +1,36 @@
+/* I2C configuration for ST25R NFC on ESP32-C3 Supermini */
+
+/ {
+	chosen {
+		zephyr,console = &usb_serial;
+		zephyr,shell-uart = &usb_serial;
+	};
+};
+
+&i2c0 {
+	status = "okay";
+	pinctrl-0 = <&i2c0_default>;
+	pinctrl-names = "default";
+	clock-frequency = <100000>;
+
+	nfc0: st25r@50 {
+		compatible = "st,st25r";
+		reg = <0x50>;
+		irq-gpios = <&gpio0 3 GPIO_ACTIVE_HIGH>;
+	};
+};
+
+&pinctrl {
+	i2c0_default: i2c0_default {
+		group1 {
+			pinmux = <I2C0_SDA_GPIO7>, <I2C0_SCL_GPIO8>;
+			bias-pull-up;
+			drive-open-drain;
+			output-high;
+		};
+	};
+};
+
+&usb_serial {
+	status = "okay";
+};

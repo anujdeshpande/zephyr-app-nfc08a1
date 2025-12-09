@@ -24,6 +24,11 @@
 #include "rfal_nfca.h"
 #include "rfal_nfcf.h"
 
+/* Define __WEAK for platforms that don't have it */
+#ifndef __WEAK
+#define __WEAK __attribute__((weak))
+#endif
+
 /** @addtogroup X-CUBE-NFC6_Applications
  *  @{
  */

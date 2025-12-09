@@ -13,3 +13,7 @@ manifest:
         name-allowlist:
           - hal_espressif
           - mbedtls
+    - name: zephyr-st25r
+      url: https://github.com/anujdeshpande/zephyr-st25r.git
+      revision: main  # Or the specific branch or commit hash you want
+      path: modules/lib/zephyr-st25r

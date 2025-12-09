@@ -1,7 +1,7 @@
 
 .PHONY: build clean flash monitor
 
-BOARD := esp32c3_devkitm
+BOARD := esp32c3_supermini
 
 build:
 	west build --board=$(BOARD)
